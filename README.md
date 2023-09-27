@@ -9,8 +9,6 @@ A small shim for building opinionated REST services in go.
 This library puts a thin layer on top of the [gin](https://github.com/gin-gonic/gin) library.
 It's aimed at writing REST based web services that mainly use JSON representations.
 
-Check out the [Demo Project](https://github.com/cfichtmueller/jug-demo) to see it in action.
-
 ## Quick Start
 
 Install dependencies.
