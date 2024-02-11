@@ -438,6 +438,22 @@ func (w *contextWrapper) MustBindJSONV(obj any, validator func() error) bool {
 	return true
 }
 
+func (w *contextWrapper) Request() *http.Request {
+	return w.c.Request
+}
+
+func (w *contextWrapper) Writer() http.ResponseWriter {
+	return w.c.Writer
+}
+
+func (w *contextWrapper) ClientIP() string {
+	return w.c.ClientIP()
+}
+
+func (w *contextWrapper) RemoteIP() string {
+	return w.c.RemoteIP()
+}
+
 func (w *contextWrapper) Status(code int) Context {
 	w.c.Status(code)
 	return w

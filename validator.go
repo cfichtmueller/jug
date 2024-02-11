@@ -49,7 +49,14 @@ func (v *Validator) RequireEnum(s string, message string, values ...string) *Val
 }
 
 // RequireStringSliceMinLength requires the given slice to have at least min elements
+//
+// Deprecated: use RequireSliceMinLength instead.
 func (v *Validator) RequireStringSliceMinLength(s []string, min int, message string) *Validator {
+	return v.RequireSliceMinLength(s, min, message)
+}
+
+// RequireSliceMinLength requires the given slice to have at least min elements
+func (v *Validator) RequireSliceMinLength(s []string, min int, message string) *Validator {
 	if len(s) < min {
 		v.append(message)
 	}
@@ -57,7 +64,14 @@ func (v *Validator) RequireStringSliceMinLength(s []string, min int, message str
 }
 
 // RequireStringSliceNotEmpty requires the given slice not to be empty
+//
+// Deprecated: use RequireSliceNotEmpty instead.
 func (v *Validator) RequireStringSliceNotEmpty(s []string, message string) *Validator {
+	return v.RequireSliceNotEmpty(s, message)
+}
+
+// RequireSliceNotEmpty requires the given slice not to be empty
+func (v *Validator) RequireSliceNotEmpty(s []string, message string) *Validator {
 	if len(s) == 0 {
 		v.append(message)
 	}
@@ -65,7 +79,14 @@ func (v *Validator) RequireStringSliceNotEmpty(s []string, message string) *Vali
 }
 
 // RequireStringSliceEnum requires the given slice to only contain elements from values...
+//
+// Deprecated: use RequireSliceEnum instead.
 func (v *Validator) RequireStringSliceEnum(s []string, message string, values ...string) *Validator {
+	return v.RequireSliceEnum(s, message, values...)
+}
+
+// RequireSliceEnum requires the given slice to only contain elements from values...
+func (v *Validator) RequireSliceEnum(s []string, message string, values ...string) *Validator {
 	if len(s) == 0 {
 		return v
 	}
@@ -92,17 +113,38 @@ func (v *Validator) RequireMatchesRegex(s string, regex *regexp.Regexp, message 
 }
 
 // RequireStringMinLength requires a value to have a given minimum length
+//
+// Deprecated: use RequireMinLength instead.
 func (v *Validator) RequireStringMinLength(s string, min int, message string) *Validator {
+	return v.RequireMinLength(s, min, message)
+}
+
+// RequireMinLength requires a value to have a given minimum length
+func (v *Validator) RequireMinLength(s string, min int, message string) *Validator {
 	return v.Require(len(s) >= min, message)
 }
 
 // RequireStringMaxLength requires a value to have a given maximum length
+//
+// Deprecated: use RequireMaxLength instead.
 func (v *Validator) RequireStringMaxLength(s string, max int, message string) *Validator {
+	return v.RequireMaxLength(s, max, message)
+}
+
+// RequireMaxLength requires a value to have a given maximum length
+func (v *Validator) RequireMaxLength(s string, max int, message string) *Validator {
 	return v.Require(len(s) < max, message)
 }
 
 // RequireStringNotEmpty requires a string not to be empty
+//
+// Deprecated: use RequireNotEmpty instead
 func (v *Validator) RequireStringNotEmpty(s string, message string) *Validator {
+	return v.RequireNotEmpty(s, message)
+}
+
+// RequireNotEmpty requires a string not to be empty
+func (v *Validator) RequireNotEmpty(s string, message string) *Validator {
 	return v.Require(len(s) > 0, message)
 }
 
