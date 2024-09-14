@@ -7,12 +7,13 @@ package jug
 import (
 	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
 	"net/url"
 	"strconv"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 type ginEngine struct {
@@ -588,7 +589,7 @@ func (w *contextWrapper) HandleError(err error) {
 	if e, ok := err.(*ResponseStatusError); ok {
 		w.c.JSON(e.StatusCode, gin.H{"error": e.Message})
 	} else {
-		w.RespondInternalServerError(err)
+		w.RespondInternalServerErrorE(err)
 	}
 }
 
