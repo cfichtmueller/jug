@@ -113,6 +113,10 @@ func (r *ginEngine) Run(addr ...string) error {
 	return r.engine.Run(addr...)
 }
 
+func (r *ginEngine) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+	r.engine.ServeHTTP(w, req)
+}
+
 type ginRoutesRouter struct {
 	routes gin.IRoutes
 }

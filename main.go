@@ -30,6 +30,8 @@ type Engine interface {
 	Run(addr ...string) error
 
 	EnableDebugMode()
+
+	ServeHTTP(w http.ResponseWriter, req *http.Request)
 }
 
 type RouterGroup interface {
