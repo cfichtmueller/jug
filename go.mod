@@ -1,6 +1,6 @@
 module github.com/cfichtmueller/jug
 
-go 1.21.0
+go 1.22
 
 toolchain go1.23.3
 
